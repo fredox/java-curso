@@ -35,13 +35,14 @@ public class Main {
 					
 					logger.info("Student Saved:");
 					
-					logger.info("id:" + id);
-					logger.info("name: " + name);
-					logger.info("surname: " + surname);
-					logger.info("Age:" + age);
+					logger.info("id:" + student.getIdStudent());
+					logger.info("name: " + student.getName());
+					logger.info("surname: " + student.getSurname());
+					logger.info("Age:" + student.getAge());
 					break;
 				case 2:
 					exit = true;
+					sc.close();
 					break;
 				default:
 					logger.info("Error: Yo must enter option 1 or 2");
