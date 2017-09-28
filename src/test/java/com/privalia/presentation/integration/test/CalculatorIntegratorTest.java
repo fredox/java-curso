@@ -4,29 +4,30 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import com.privalia.presentation.Calculator;
+import com.privalia.presentation.ICalculator;
 
 public class CalculatorIntegratorTest {
 	@Test
 	public void testAdd() {
-		Calculator calculator = new Calculator();
+		ICalculator calculator = new Calculator();
 		assertTrue(calculator.add(2, 3) == 5);
 	}
 	
 	@Test
 	public void testSubstract() {
-		Calculator calculator = new Calculator();
+		ICalculator calculator = new Calculator();
 		assertTrue(calculator.substract(2, 2) == 0);
 	}
 	
 	@Test
 	public void testMultiply() {
-		Calculator calculator = new Calculator();
+		ICalculator calculator = new Calculator();
 		assertTrue(calculator.multiply(2, 3) == 6);
 	}
 	
 	@Test
 	public void testDivide() {
-		Calculator calculator = new Calculator();
+		ICalculator calculator = new Calculator();
 		assertTrue(calculator.divide(4, 2) == 2);
 	}
 }

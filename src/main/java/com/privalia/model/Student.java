@@ -72,4 +72,65 @@ public class Student {
 	public void setAge(int age) {
 		this.age = age;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + age;
+		result = prime * result + idStudent;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		if (age != other.age)
+			return false;
+		if (idStudent != other.idStudent)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (surname == null) {
+			if (other.surname != null)
+				return false;
+		} else if (!surname.equals(other.surname))
+			return false;
+		return true;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Student [idStudent=");
+		builder.append(idStudent);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append(", surname=");
+		builder.append(surname);
+		builder.append(", age=");
+		builder.append(age);
+		builder.append("]");
+		return builder.toString();
+	}
 }

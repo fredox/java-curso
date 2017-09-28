@@ -2,6 +2,9 @@ package com.privalia.presentation;
 
 import java.util.Scanner;
 import org.apache.log4j.Logger;
+
+import com.privalia.dao.IStudentDao;
+import com.privalia.dao.StudentDao;
 import com.privalia.model.Student;
 import com.privalia.util.MethodInfo;
 
@@ -17,8 +20,10 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		
 		while (!exit) {
-			logger.info("1. New Student");
-			logger.info("2. Salir");
+			logger.info("+--------------------+");
+			logger.info("|  1. New Student    |");
+			logger.info("|  2. Salir          |");
+			logger.info("+--------------------+");
 			int option = sc.nextInt();
 			switch (option) {
 				case 1: 
@@ -32,13 +37,20 @@ public class Main {
 					int age = sc.nextInt();
 					
 					Student student = new Student(id, name, surname, age); 
-					
+					IStudentDao studentDao = new StudentDao();
+					try{
+						studentDao.add(student);
+					}catch(Exception e){
+						logger.info("error:" + e.getMessage());
+					}
 					logger.info("Student Saved:");
 					
+					logger.info("-----------------------------------");
 					logger.info("id:" + student.getIdStudent());
 					logger.info("name: " + student.getName());
 					logger.info("surname: " + student.getSurname());
 					logger.info("Age:" + student.getAge());
+					logger.info("-----------------------------------");
 					break;
 				case 2:
 					exit = true;
