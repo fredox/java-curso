@@ -1,6 +1,8 @@
 package com.privalia.model;
 
-public class Student {
+import com.privalia.dao.PrivaliaObject;
+
+public class Student extends PrivaliaObject{
 	private int idStudent;
 	private String name;
 	private String surname;
@@ -122,15 +124,15 @@ public class Student {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Student [idStudent=");
+		builder.append(this.getUuid());
+		builder.append(',');
 		builder.append(idStudent);
-		builder.append(", name=");
+		builder.append(",");
 		builder.append(name);
-		builder.append(", surname=");
+		builder.append(",");
 		builder.append(surname);
-		builder.append(", age=");
+		builder.append(",");
 		builder.append(age);
-		builder.append("]");
 		return builder.toString();
 	}
 }

@@ -3,7 +3,7 @@ package com.privalia.presentation;
 import java.util.Scanner;
 import org.apache.log4j.Logger;
 
-import com.privalia.dao.IStudentDao;
+import com.privalia.dao.IDao;
 import com.privalia.dao.StudentDao;
 import com.privalia.model.Student;
 import com.privalia.util.MethodInfo;
@@ -37,7 +37,7 @@ public class Main {
 					int age = sc.nextInt();
 					
 					Student student = new Student(id, name, surname, age); 
-					IStudentDao studentDao = new StudentDao();
+					IDao<Student> studentDao = new StudentDao();
 					try{
 						studentDao.add(student);
 					}catch(Exception e){

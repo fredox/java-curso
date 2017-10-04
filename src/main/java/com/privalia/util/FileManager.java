@@ -9,6 +9,11 @@ public class FileManager {
 	
 	static final Logger logger = Logger.getLogger(FileManager.class);
 	
+	private FileManager()
+	{
+		
+	}
+	
 	private static FileWriter createFile(String fileName) throws IOException
 	{
 		try{
@@ -19,7 +24,7 @@ public class FileManager {
 		}
 	}
 	
-	public static void write(String filePath, String data) throws IOException
+	public static synchronized void write(String filePath, String data) throws IOException
 	{
 		try (
 				FileWriter fileWriter = createFile(filePath);
